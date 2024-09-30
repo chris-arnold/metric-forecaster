@@ -4,9 +4,16 @@ services:
     build:
       context: .
     ports:
-      # use 10000 + gitlab project ID (1646) to avoid host port collisions
-      # This is only for referencing from the host.
-      # Within the docker-compose environment you would use http://metric-forecaster.
-      - 11646:80
+      - "8000:8000"
     env_file:
       - "docker.env"
+
+  mysql:
+    image: mysql:8
+    ports:
+      - "3306:3006"
+    volumes:
+      - ".mysql:/var/lib/mysql"
+    environment:
+      MYSQL_DATABASE: "metric_forecaster"
+      MYSQL_ROOT_PASSWORD: "DBROOTPASSWORD"

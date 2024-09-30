@@ -1,14 +1,12 @@
 import time
-from fastapi import FastAPI, Request, Response, status
+from fastapi import Request, Response, status
 
 from models import Watch
 from sqlmodel import select
 
+from . import app
 from .deps import SessionDep
 from .metrics import metrics
-
-
-app = FastAPI()
 
 
 @app.middleware("http")

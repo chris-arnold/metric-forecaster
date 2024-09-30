@@ -2,7 +2,7 @@ from sqlmodel import Session, SQLModel, create_engine
 from .config import settings
 
 
-dsn = f"mysql+pymysql://{settings.database_user}:{settings.database_password}@{settings.database_host}:{settings.database_port}/{settings.database_name}"
+dsn = settings.dsn
 engine = create_engine(dsn)
 
 

@@ -4,7 +4,7 @@ import fastapi
 from fastapi.testclient import TestClient
 
 from sqlmodel import Session, delete
-from app.main import app
+from app.app import app
 from app.db import engine, init_db
 from models import Watch
 
